@@ -82,6 +82,7 @@ public class BinaryTree<T extends Comparable<T>> {
 
     public void inOrderTraverse() {
         if (root != null) {
+            
             inOrderTraverse(root.left);
             System.out.print(root.data + " ");
             inOrderTraverse(root.right);

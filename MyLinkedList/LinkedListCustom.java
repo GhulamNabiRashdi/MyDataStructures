@@ -1,6 +1,8 @@
+import java.util.Stack;
+
 public class LinkedListCustom<t> {
 
-    private class Node<t> {
+    private class Node {
         private t data;
         private Node next;
 
@@ -15,7 +17,7 @@ public class LinkedListCustom<t> {
     public Node head2;
 
     public void addFirst(t data) {
-        Node<t> newNode = new Node<t>(data);
+        Node newNode = new Node(data);
 
         if (head == null) {
             head = newNode;
@@ -27,7 +29,7 @@ public class LinkedListCustom<t> {
         }
     }
     public Node addFirst(t data,Node head) {
-        Node newNode = new Node<t>(data);
+        Node newNode = new Node(data);
 
         if (head == null) {
             head = newNode;
@@ -203,6 +205,59 @@ public class LinkedListCustom<t> {
             }
             return head2;
         }
+    }
+    public void Reverse(){
+        if(head == null){
+            System.out.println("List is Empty");
+            return;
+        }
+        else{
+            Node current = head;
+            Node prev = null;
+            Node next = null;
+            while(current != null){
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            Node head2 = prev;
+           // printLinkedList(head2);
+        }
+    }
+    public void printInReverseOrder(){
+        if(head == null){
+            return;
+        }
+        else{
+            Stack<t> stack = new Stack<>();
+            Node temp = head;
+            while(temp != null){
+                stack.add(temp.data);
+                temp = temp.next;
+            }
+            while(!stack.isEmpty()){
+                System.out.print(stack.pop() + " ");
+            }
+        }
+    }
+
+    public void printL(Node head){
+        if(head == null){
+        System.out.println();
+        return;  
+    }
+        else{
+            System.out.print(head.data + " ");
+            printL(head.next);
+          //  System.out.println();
+            System.out.print(head.data + " ");
+            
+        }
+    }
+    public void printL(){
+       // if(head == null)return ;
+        printL(head);
     }
     // public T nthNumberFromLastInList(int nthIndex){
     //     int i = size -1;

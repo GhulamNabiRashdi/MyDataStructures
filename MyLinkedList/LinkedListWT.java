@@ -118,7 +118,6 @@ public class LinkedListWT<t extends Comparable<t>> {
             while (temp.next != null) {
                 System.out.print(temp.data + " ");
                 temp = temp.next;
-
             }
             System.out.println(temp.data);
         }
@@ -155,9 +154,7 @@ public class LinkedListWT<t extends Comparable<t>> {
         for (int i = 0; i < size - 1; i++) {
             if (temp.data == element) {
                 return true;
-
             }
-
         }
         return false;
 
@@ -269,7 +266,7 @@ public class LinkedListWT<t extends Comparable<t>> {
             return;
         } else {
             Node temp = head;
-
+            
             while (temp != null) {
 
             }

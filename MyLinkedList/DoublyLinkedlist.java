@@ -23,8 +23,9 @@ public class DoublyLinkedlist<T extends Comparable<T>> {
             head = newNode;
             size++;
             return;
-        } else {
-            if (isCircular != true) {
+        } 
+        else {
+            if (!isCircular) {
                 Node temp = head;
                 while (temp.next != null) {
                     temp = temp.next;
@@ -38,7 +39,6 @@ public class DoublyLinkedlist<T extends Comparable<T>> {
                 temp2.next = newNode;
                 newNode.prev = temp2;
                 newNode.next = head;
-
             }
 
         }
@@ -313,6 +313,27 @@ public class DoublyLinkedlist<T extends Comparable<T>> {
                 System.out.print(temp.data);
                 System.out.println();
             }
+        }
+    }
+    public void printListReverse2() {
+        if(head == null){
+            System.out.println("Link is Empty");
+            return;
+        }else{
+            Node current = head;
+            Node next = current.next;
+            Node prev = current.prev;
+           
+            while(current !=null){
+                next = current.next;
+                prev = current.prev;
+                current.next = prev;
+                current.prev = next;
+                current = next;
+                
+
+            }
+            
         }
     }
 

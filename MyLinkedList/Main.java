@@ -8,16 +8,21 @@ public class Main {
         list.addLast(50);
         list.addLast(60);
 
-        list.printLinkedList();
-        list.removeLast();
-        list.removeLast();
-        list.removeLast();
+        // list.printLinkedList();
+        // list.removeLast();
+        // list.removeLast();
+        // list.removeLast();
 
-        list.printLinkedList();
+        // list.printLinkedList();
 
-        list.removeFront();
+        // list.removeFront();
 
-        list.printLinkedList();
+        // list.printLinkedList();
+       // list.printInReverseOrder();
+        //System.out.println();
+       // list.printLinkedList();
+        list.printL();
+        
 
     }
 }

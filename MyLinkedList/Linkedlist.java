@@ -1,4 +1,4 @@
-public class Linkedlist {
+public class LinkedList {
 
     private class Node {
         private int data;
@@ -11,7 +11,6 @@ public class Linkedlist {
     }
 
     private Node head;
-    private Node tail;
     private int size = 0;
 
     
@@ -20,7 +19,6 @@ public class Linkedlist {
 
         if (head == null) {
             head = newNode;
-            tail = newNode;
             size++;
         } else {
             newNode.next = head;
@@ -35,16 +33,18 @@ public class Linkedlist {
 
         if (head == null) {
             head = newNode;
-            tail = newNode;
             size++;
         } else {
-            tail.next = newNode;
-            tail = newNode;
+            Node temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newNode;
             size++;
         }
     }
 
-
+    
     public int removeFront() {
         if (head == null) {
             return -1; 
@@ -52,7 +52,6 @@ public class Linkedlist {
         if (head.next == null) {
             int data = head.data;
             head = null;
-            tail = null;
             size--;
             return data;
         } else {
@@ -70,23 +69,21 @@ public class Linkedlist {
         } else if (head.next == null) {
             int data = head.data;
             head = null;
-            tail = null;
             size--;
             return data;
         } else {
             Node temp = head;
-            while (temp.next.next != null) {
+            Node prev = null;
+            while (temp.next != null) {
+                prev = temp;
                 temp = temp.next;
             }
-            int data = temp.next.data;
-            temp.next = null;
-            tail = temp;
+            int data = temp.data;
+            prev.next = null;
             size--;
             return data;
         }
     }
-
-    
     public void printLinkedList() {
         if (head == null) {
             System.out.println("List is Empty");
@@ -102,7 +99,7 @@ public class Linkedlist {
     }
 
     public static void main(String[] args) {
-        Linkedlist list = new Linkedlist();
+        LinkedList list = new LinkedList();
 
         list.addFirst(10);
         list.addFirst(20);

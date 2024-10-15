@@ -1,6 +1,6 @@
 
 public class Main {
-    static boolean isSorted = false;
+    //static boolean isSorted = false;
     
     public static void main(String[]args){
     // MyStackUsingArray<Integer> stack = new MyStackUsingArray<>();
@@ -37,11 +37,11 @@ public class Main {
     stack.print();
     System.out.println(stack.top());
 
-    int[]array = {8,5,7,3,2,4,1,9,6};
-    bubbleSort(array);
-    for(int i = 0; i < array.length; i++){
-        System.out.print(array[i] + " ");
-    }
+    //int[]array = {8,5,7,3,2,4,1,9,6};
+    // bubbleSort(array);
+    // for(int i = 0; i < array.length; i++){
+    //     System.out.print(array[i] + " ");
+    // }
 }   
 }
     

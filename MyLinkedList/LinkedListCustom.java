@@ -122,8 +122,8 @@ public class LinkedListCustom<t> {
         return size;
     }
 
-    public void addAtMiddle(int index, int data) {
-        Node newNode = new Node<>(data);
+    public void addAtMiddle(int index, t data) {
+        Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
         } else {

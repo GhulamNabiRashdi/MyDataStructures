@@ -288,8 +288,8 @@ public class Algorithms <T>{
             }
         }
     }
-    public void mergeSortUsingItteration(int[] array){
-        
+    public static void main(String[]args){
+
     }
 
 }

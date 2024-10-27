@@ -1,13 +1,12 @@
-package Queue;
 public class StackUsingTwoQueues<T> {
 
-    private MyQueue<T> queue1;
-    private MyQueue<T> queue2;    
+    private MyQueueUsingArray<T> queue1;
+    private MyQueueUsingArray<T> queue2;    
     private int size;
 
     public StackUsingTwoQueues() {
-        queue1 = new MyQueue<>();
-        queue2 = new MyQueue<>();
+        queue1 = new MyQueueUsingArray<>();
+        queue2 = new MyQueueUsingArray<>();
         size = 0;
     }
 

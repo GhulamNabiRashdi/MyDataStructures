@@ -131,5 +131,6 @@ public class LinkedList {
         System.out.println("Removed from last: " + list.removeLast());
 
         list.printLinkedList();
+        list.printReverse();
     }
 }

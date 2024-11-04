@@ -12,7 +12,7 @@ public class LinkedListCustom<t> {
         }
     }
 
-    Node head;
+    private Node head;
     private int size = 0;
     public Node head2;
 
@@ -251,7 +251,7 @@ public class LinkedListCustom<t> {
             System.out.print(head.data + " ");
             printL(head.next);
           //  System.out.println();
-            //System.out.print(head.data + " ");
+            System.out.print(head.data + " ");
             
         }
     }

@@ -48,8 +48,11 @@ public class Algorithms <T>{
 
     
     public static void heapSort(int[]array){
+
         for(int i = array.length/2 - 1; i >= 0; i--){
+        
             heapify(array, array.length, i);
+        
         }
         for(int i = array.length - 1; i >= 0; i--){
             int temp = array[0];
@@ -73,7 +76,7 @@ public class Algorithms <T>{
             int temp = array[i];
             array[i] = array[largest];
             array[largest] = temp;
-            heapify(array, size, largest);
+             heapify(array, size, largest);
         }
     }
 
@@ -239,36 +242,9 @@ public class Algorithms <T>{
             }
         }
     }  
-    public static void DFSIterative(int[][]graph, int start){
-        boolean[]visited = new boolean[graph.length];
-        Queue<Integer>queue = new LinkedList<>();
-        queue.add(start);
-        visited[start] = true;
-        while(!queue.isEmpty()){
-            int current = queue.remove();
-            System.out.print(current + " ");
-            for(int i = 0; i < graph[current].length; i++){
-                if(graph[current][i] == 1 && !visited[i]){
-                    queue.add(i);
-                    visited[i] = true;
-                }
-            }
-        }
-    } 
-
-    public static void DFSIterativeRecursive(int[][]graph, int start){
-        boolean[]visited = new boolean[graph.length];
-        DFSIterativeRecursiveUtil(graph, start, visited);
-    }
-    private static void DFSIterativeRecursiveUtil(int[][]graph, int start, boolean[]visited){
-        visited[start] = true;
-        System.out.print(start + " ");
-        for(int i = 0; i < graph[start].length; i++){
-            if(graph[start][i] == 1 && !visited[i]){
-                DFSIterativeRecursiveUtil(graph, i, visited);
-            }
-        }
-    }
+    
+    
+    
     public static void bucketSort(int[]array){
         int max = array[0];
         for(int i = 1; i < array.length; i++){

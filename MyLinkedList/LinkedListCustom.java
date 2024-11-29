@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class LinkedListCustom<t> {
 
-    private class Node {
+         class Node {
         private t data;
         private Node next;
 
@@ -15,6 +15,34 @@ public class LinkedListCustom<t> {
     private Node head;
     private int size = 0;
     public Node head2;
+
+    public void removeNodes(Node head, int M, int N){
+        if(head == null){
+            return;
+        }
+        else{
+            int count = 0;
+            Node temp = head;
+
+            while(temp.next != null){
+                if(count <= M ){
+                    temp = temp.next;
+                    count++;
+                }
+                else{
+                    break;
+                }
+            }
+            count = 0;
+            while(temp.next != null){
+                if(count <= N){
+                    temp = temp.next.next;
+                }
+            }
+            printL(head);
+
+        }
+    }
 
     public void addFirst(t data) {
         Node newNode = new Node(data);
@@ -402,6 +430,7 @@ public class LinkedListCustom<t> {
             }
         }
     }
+    
 
 
 }   

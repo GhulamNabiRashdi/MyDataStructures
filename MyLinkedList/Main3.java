@@ -49,10 +49,10 @@ public class Main3{
        Dll.insertElementBefore(90, 0);
        Dll.insertElementAfter(91, 90);
         Dll.printList();
-        Node head = new Node(1);    
-        head.next = new Node(2);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(4);
+        Node2 head = new Node2(1);    
+        head.next = new Node2(2);
+        head.next.next = new Node2(3);
+        head.next.next.next = new Node2(4);
         head.next.next.next.next = head.next;
         boolean hasCycle = head.hasCycle(head);
         System.out.println("Does Link has Cycle?: "+ hasCycle);

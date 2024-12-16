@@ -1,7 +1,10 @@
+
+
 public class Main {
     public static void main(String[]args){
         System.out.println("hello World!");
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+       // BinarySearchTree<Integer> tree = new BinarySearchTree<>();
+       CompleteBinaryTree<Integer> Ctree = new CompleteBinaryTree<>();
 
         tree.insert(10); //Root
 

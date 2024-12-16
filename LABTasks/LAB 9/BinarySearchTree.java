@@ -1,4 +1,5 @@
-import java.util.*;;
+import java.util.*;
+import java.util.LinkedList;
 public class BinarySearchTree<T extends Comparable<T>> {
 
     private class Node {
@@ -155,5 +156,35 @@ public class BinarySearchTree<T extends Comparable<T>> {
         
     }
     }
+    public int countofNodes(){
+        int i = 0;
+        Queue<Node> myQueue = new LinkedList<>();
+        myQueue.offer(root);
+        while(!myQueue.isEmpty()){
+            Node temp = myQueue.poll();
+            i++;
+            if(temp.left != null){
+                myQueue.offer(temp.left);
+            }
+            if(temp.right != null){
+                myQueue.offer(temp.right);
+            }    
+        }
 
-}
+        return i;
+    }
+    public int height(){
+        return height(root);
+    }
+
+    private int height(Node root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    } 
+
+}   

@@ -37,7 +37,7 @@
 //             System.out.print("Neighbours of " + i + " are: ");
 //             for(int j = 0; j < adjacencyList.get(i).size(); j++){
 //                 System.out.print(adjacencyList.get(i).get(j) + " ");
-            
+
 //             }
 //             System.out.println();
 //         }
@@ -96,8 +96,9 @@ public class AdjacencyList {
             System.out.println();
         }
     }
-    public void BFS(int startVertex){
-        if(startVertex < 0 || startVertex >= size ){
+
+    public void BFS(int startVertex) {
+        if (startVertex < 0 || startVertex >= size) {
             System.out.println("Invalid Starting Vertex");
             return;
         }
@@ -110,9 +111,9 @@ public class AdjacencyList {
             int currentVertex = myQueue.poll();
             System.out.print(currentVertex + " ");
 
-            for(int i = 0; i < adjacencyList.get(currentVertex).size(); i++){
+            for (int i = 0; i < adjacencyList.get(currentVertex).size(); i++) {
                 Edge edge = adjacencyList.get(currentVertex).get(i);
-                if(!isVisited[edge.destination]){
+                if (!isVisited[edge.destination]) {
                     myQueue.add(edge.destination);
                     isVisited[edge.destination] = true;
                 }
@@ -121,17 +122,25 @@ public class AdjacencyList {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        AdjacencyList graph = new AdjacencyList(5);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 4);
-        graph.addEdge(1, 2);
-        graph.addEdge(1, 3);
-        graph.addEdge(1, 4);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 4);
-        graph.BFS(0);
+    public void DFS(int starVertex) {
+        if (starVertex < 0 || starVertex >= size) {
+            System.out.println("Invalid Starting point ");
+            return;
+        }
+        boolean[] isVisited = new boolean[size];
+        System.out.println("Depth First Traversal");
+        DFS(starVertex, isVisited);
+        System.out.println();
+    }
 
-        graph.printGraph();
+    private void DFS(int startVertex, boolean[] isVisited) {
+        isVisited[startVertex] = true;
+        System.out.print(startVertex + " ");
+        for (int i = 0; i < adjacencyList.get(startVertex).size(); i++) {
+            Edge neighbours = adjacencyList.get(startVertex).get(i);
+            if (!isVisited[neighbours.destination]) {
+                DFS(neighbours.destination, isVisited);
+            }
+        }
     }
 }

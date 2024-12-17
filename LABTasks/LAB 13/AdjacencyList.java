@@ -46,6 +46,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class AdjacencyList {
     class Edge {
@@ -145,6 +146,16 @@ public class AdjacencyList {
             if (!isVisited[neighbours.destination]) {
                 DFS(neighbours.destination, isVisited);
             }
+        }
+    }
+    public void pathsFrom(int startVertex, int endVertex){
+        if((startVertex < 0 || startVertex >= size)||(endVertex < 0 || endVertex >= size)){
+            System.out.println("Invalid Vertices");
+            return;
+        }
+        Stack<Integer> myStack = new Stack<>();
+        for(int i = 0; i < adjacencyList.get(startVertex).size(); i++){
+
         }
     }
 }

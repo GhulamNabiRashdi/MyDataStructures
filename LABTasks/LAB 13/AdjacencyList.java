@@ -44,6 +44,8 @@
 //     }
 // }
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class AdjacencyList {
     class Edge {
@@ -94,6 +96,30 @@ public class AdjacencyList {
             System.out.println();
         }
     }
+    public void BFS(int startVertex){
+        if(startVertex < 0 || startVertex >= size ){
+            System.out.println("Invalid Starting Vertex");
+            return;
+        }
+        System.out.println("Breadth First Traversal");
+        Queue<Integer> myQueue = new LinkedList<>();
+        boolean[] isVisited = new boolean[size];
+        myQueue.add(startVertex);
+        isVisited[startVertex] = true;
+        while (!myQueue.isEmpty()) {
+            int currentVertex = myQueue.poll();
+            System.out.print(currentVertex + " ");
+
+            for(int i = 0; i < adjacencyList.get(currentVertex).size(); i++){
+                Edge edge = adjacencyList.get(currentVertex).get(i);
+                if(!isVisited[edge.destination]){
+                    myQueue.add(edge.destination);
+                    isVisited[edge.destination] = true;
+                }
+            }
+        }
+        System.out.println();
+    }
 
     public static void main(String[] args) {
         AdjacencyList graph = new AdjacencyList(5);
@@ -104,6 +130,7 @@ public class AdjacencyList {
         graph.addEdge(1, 4);
         graph.addEdge(2, 3);
         graph.addEdge(3, 4);
+        graph.BFS(0);
 
         graph.printGraph();
     }

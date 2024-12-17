@@ -78,13 +78,17 @@ public class AdjacencyList {
         }
     }
 
-    public void addEdge(int source, int destination) {
+    public void addUndirectedEdge(int source, int destination) {
         Edge edge = new Edge(source, destination);
         adjacencyList.get(source).add(edge);
 
         // Adding reverse edge for undirected graph
         Edge reverseEdge = new Edge(destination, source);
         adjacencyList.get(destination).add(reverseEdge);
+    }
+    public void addDirectedEdge(int source, int destination) {
+        Edge edge = new Edge(source, destination);
+        adjacencyList.get(source).add(edge);       
     }
 
     public void printGraph() {

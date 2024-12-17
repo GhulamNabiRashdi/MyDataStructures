@@ -27,23 +27,23 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    private void insert(Node newNode, BinarySearchTree.Node root2) {
+    private void insert(Node newNode, Node root) {
         if (newNode == null) {
             return;
         } else {
-            if (newNode.data.compareTo((T) root2.data) < 0) {
-                if (root2.left == null) {
-                    root2.left = newNode;
+            if (newNode.data.compareTo((T) root.data) < 0) { //newNode.data < root.data
+                if (root.left == null) {
+                    root.left = newNode;
                 } else {
-                    insert(newNode, root2.left);
-                    // root2.left = newNode;
+                    insert(newNode, root.left);
+                    // root.left = newNode;
                 }
             } else {
-                if (root2.right == null) {
-                    root2.right = newNode;
+                if (root.right == null) {
+                    root.right = newNode;
                 } else {
-                    insert(newNode, root2.right);
-                    // root2.right = newNode;
+                    insert(newNode, root.right);
+                    // root.right = newNode;
                 }
             }
         }
@@ -98,7 +98,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     private boolean search(T data, Node root) {
         if (root == null) {
             return false;
-        } else if (root.data.compareTo(data) == 0) {
+        } else if (root.data.compareTo(data) == 0) { // root.data == data
             return true;
         } else if (root.data.compareTo(data) > 0) {
             return search(data, root.left);
@@ -111,12 +111,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
         smallestElement(root);
     }
 
-    private void smallestElement(BinarySearchTree.Node root2) {
-        if (root2.left == null) {
-            System.out.println(root2.data);
+    private void smallestElement(Node root) {
+        if (root.left == null) {
+            System.out.println(root.data);
             return;
         } else {
-            smallestElement(root2.left);
+            smallestElement(root.left);
         }
     }
 
@@ -124,12 +124,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
         smallestElement(root);
     }
 
-    private void largestElement(BinarySearchTree.Node root2) {
-        if (root2.right == null) {
-            System.out.println(root2.data);
+    private void largestElement(Node root) {
+        if (root.right == null) {
+            System.out.println(root.data);
             return;
         } else {
-            smallestElement(root2.right);
+            smallestElement(root.right);
         }
     }
 
@@ -137,7 +137,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         BFS(root);
     }
 
-    private void BFS(BinarySearchTree.Node root) {
+    private void BFS(Node root) {
         if(root != null){
         Queue<Node> myQueue = new LinkedList<>();
         myQueue.offer(root);

@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class LinkedList {
 
     private class Node {
@@ -93,6 +95,23 @@ public class LinkedList {
             while (temp != null) {
                 System.out.print(temp.data + " ");
                 temp = temp.next;
+            }
+            System.out.println();
+        }
+    }
+    public void printReverse(){
+        if(head == null){
+            return;
+        }
+        else{
+            Stack<Integer> stack = new Stack<>();
+            Node temp = head;
+            while(temp != null){
+                stack.add(temp.data);
+                temp = temp.next;
+            }
+            while(!stack.isEmpty()){
+                System.out.print(stack.pop() + " ");
             }
             System.out.println();
         }

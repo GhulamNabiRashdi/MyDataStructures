@@ -158,4 +158,32 @@ public class AdjacencyList {
 
         }
     }
+
+    public void allPathsFrom(int startVertex, int endVertex) {
+        if (startVertex < 0 || startVertex >= size || endVertex < 0 || endVertex >= size) {
+            System.out.println("Invalid Vertices");
+            return;
+        }
+        boolean[] isVisited = new boolean[size];
+        ArrayList<Integer> pathList = new ArrayList<>();
+        pathList.add(startVertex);
+        System.out.println("All paths from " + startVertex + " to " + endVertex + ":");
+        findAllPaths(startVertex, endVertex, isVisited, pathList);
+    }
+    
+    private void findAllPaths(Integer startVertex, Integer endVertex, boolean[] isVisited, ArrayList<Integer> localPathList) {
+        if (startVertex.equals(endVertex)) {
+            System.out.println(localPathList);
+            return;
+        }
+        isVisited[startVertex] = true;
+        for (Edge edge : adjacencyList.get(startVertex)) {
+            if (!isVisited[edge.destination]) {
+                localPathList.add(edge.destination);
+                findAllPaths(edge.destination, endVertex, isVisited, localPathList);
+                localPathList.remove(edge.destination);
+            }
+        }
+        isVisited[startVertex] = false;
+    }
 }

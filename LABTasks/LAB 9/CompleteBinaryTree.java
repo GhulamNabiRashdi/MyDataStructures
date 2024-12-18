@@ -232,6 +232,28 @@ public class CompleteBinaryTree<T extends Comparable<T>> {
         }
 
     }
+    public boolean isSubTree(Node T, Node S) {
+        if (S == null) {
+            return true;
+        }
+        if (T == null) {
+            return false;
+        }
+        if (isIdentical(T, S)) {
+            return true;
+        }
+        return isSubTree(T.left, S) || isSubTree(T.right, S);
+    }
+
+    private boolean isIdentical(Node T, Node S) {
+        if (T == null && S == null) {
+            return true;
+        }
+        if (T == null || S == null) {
+            return false;
+        }
+        return T.data.equals(S.data) && isIdentical(T.left, S.left) && isIdentical(T.right, S.right);
+    }
 
     public static void main(String[] args) {
         // System.out.println("hello WOrld!");

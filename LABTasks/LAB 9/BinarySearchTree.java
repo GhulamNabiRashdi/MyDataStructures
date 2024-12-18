@@ -185,6 +185,45 @@ public class BinarySearchTree<T extends Comparable<T>> {
             int rightHeight = height(root.right);
             return Math.max(leftHeight, rightHeight) + 1;
         }
-    } 
+    }
+    public void remove(T data) {
+        root = remove(data, root);
+    }
+
+    private Node remove(T data, Node root) {
+        if (root == null) {
+            return null;
+        }
+
+        if (data.compareTo(root.data) < 0) {
+            root.left = remove(data, root.left);
+        } else if (data.compareTo(root.data) > 0) {
+            root.right = remove(data, root.right);
+        } else {
+            // Node with only one child or no child
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+
+            // Node with two children: Get the inorder successor (smallest in the right subtree)
+            root.data = findMin(root.right);
+
+            // Delete the inorder successor
+            root.right = remove(root.data, root.right);
+        }
+
+        return root;
+    }
+
+    private T findMin(Node root) {
+        T min = root.data;
+        while (root.left != null) {
+            root = root.left;
+            min = root.data;
+        }
+        return min;
+    }
 
 }   

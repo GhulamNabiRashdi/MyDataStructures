@@ -15,6 +15,10 @@ public class Main {
         bh.add(10);
         bh.add(11);
         bh.add(12);
+        // bh.extractMin();
+        // bh.extractMin();
+        // bh.extractMin();
+        System.out.println(bh);
         // bh.add('z');
         // bh.add('a');
         // bh.add('C');
@@ -43,20 +47,20 @@ public class Main {
         // bh.extractMin();
         // bh.extractMin();
      //   System.out.println(bh);
-        bh.add(33);
+       // bh.add(33);
        // System.out.println(bh);
-        bh.add(44);
-        System.out.println(bh);
-        bh.printHeap();
-        bh.changePriority(7, 99);
-        bh.changePriority(6, 11);
-        bh.changePriority(3, 0);
-        bh.changePriority(0, 10000);
-        bh.changePriority(15, 1);
-        System.out.println(bh);
-        bh.printHeap();
-        System.out.println(bh.search(3));
+       // bh.add(44);
         
+       // bh.printHeap();
+        //bh.changePriority(7, 99);
+       // bh.changePriority(6, 11);
+       // //bh.changePriority(3, 0);
+       // bh.changePriority(0, 10000);
+       // bh.changePriority(15, 1);
+       // System.out.println(bh);
+      //  bh.printHeap();
+       // System.out.println(bh.search(3));
+       
     //     bh.extractMax();
     //     System.out.println(bh);
     //     bh.extractMax();

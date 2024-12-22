@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 public class AdjacencyMatrix3 {
+
     private int[][]matrix;
     private ArrayList<Vertexz> v = new ArrayList<>();
     private int size;
